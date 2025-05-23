@@ -1,0 +1,36 @@
+  .main-button {
+    padding: 0.75rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 500;
+  }
+  
+  .main-button.primary {
+    background-color: #545960;
+    color: white;
+  }
+  
+  .main-button.primary:hover {
+    background-color: #1e40af;
+  }
+  
+  .main-button.secondary {
+    background-color: #e5e7eb;
+    color: #111827;
+  }
+  
+  .main-button.secondary:hover {
+    background-color: #d1d5db;
+  }
+  
+  .main-button.danger {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .main-button.danger:hover {
+    background-color: #b91c1c;
+  }

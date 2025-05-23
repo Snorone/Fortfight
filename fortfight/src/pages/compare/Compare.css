@@ -1,0 +1,61 @@
+.compare-container {
+    background: rgb(103, 61, 123);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+   width: 100%;
+   min-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .compare-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .input-row input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    min-width:100px;
+  }
+  
+  .compare-container button {
+    width: 100%;
+    padding: 0.7rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+  }
+  
+  .compare-container button:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .result-grid {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .result-grid > * {
+    flex: 1 1 100px; /* växer, krymper, grundbredd */
+    min-width: 100px;
+  }
+
+  @media (max-width: 500px) {
+    .result-grid {
+      flex-direction: column;
+    }
+  }

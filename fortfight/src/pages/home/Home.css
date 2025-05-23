@@ -1,0 +1,74 @@
+.home-container {
+    background: rgb(103, 61, 123);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  .home-intro {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+  }
+  
+  .home-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .home-button {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .home-button:hover {
+    background-color: #bbb;
+  }
+  
+  .home-button.primary {
+    background-color: #2563eb;
+    color: white;
+  }
+  
+  .home-button.primary:hover {
+    background-color: #1d4ed8;
+  }
+
+  .recent-searches {
+    margin-top: 2rem;
+    text-align: left;
+  }
+  
+  .recent-searches h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .recent-searches ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .recent-searches li {
+    padding: 0.25rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+  }
+  .search-wrapper {
+    margin-top: 2rem;
+  }
