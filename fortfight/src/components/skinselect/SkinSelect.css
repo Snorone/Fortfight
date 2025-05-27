@@ -1,0 +1,58 @@
+.skin-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .skin-thumb {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      z-index: 2;
+      pointer-events: auto;
+    
+  }
+  
+  .skin-thumb:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .skin-select-carousel {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .carousel-track {
+    display: flex;
+    gap: 1rem;
+    overflow: hidden;
+  }
+  
+  .skin-thumb {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .skin-thumb:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }

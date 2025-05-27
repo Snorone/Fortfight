@@ -9,10 +9,12 @@ import LogoutButton from "../../components/logoutbutton/LogoutButton";
 import { onAuthStateChanged } from "firebase/auth";
 import "./Profile.css";
 import { auth } from "../../firebase/Firebase";
+import { saveSkinToUser } from "../../firebase/saveSkinToUser";
+import SkinSelect from "../../components/skinselect/SkinSelect";
 
 export default function Profile() {
   const ready = useAuthReady();
-  const { data: userData, isLoading, isError, refetch } = useUserData();
+  const { data: userData, isLoading, refetch } = useUserData();
 
   const [playerData, setPlayerData] = useState<any>(null);
   const [loading, setLoading] = useState(false);
@@ -57,15 +59,27 @@ export default function Profile() {
     if (user) {
       await saveEpicIdToUser(user.uid, epicInput.trim());
       setSaved(true);
-      window.location.reload();
+      refetch();
     }
   };
 
+  const handleSelectSkin = async (skin: any) => {
+    if (user?.uid) {
+      await saveSkinToUser(user.uid, skin);
+      setSaved(true);
+      refetch(); // uppdatera användardata
+    }
+  };
+  const skinImg = userData?.skin?.images?.icon;
+
   if (!ready) return <p>Laddar Firebase...</p>;
   if (isLoading) return <p>Laddar användare...</p>;
-
+  console.log("Valt skin:", skinImg);
   return (
-    <div className="profile-container">
+    <div className="profile-container" style={{backgroundImage: skinImg ? `url(${skinImg})` : undefined,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundColor: skinImg ? "transparent" : "white",}}>
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -77,7 +91,7 @@ export default function Profile() {
       )}
 
 {welcomeMsg && (
-        <div className="welcome-msg">
+        <div className="popup-toast">
           <p>🎉 Välkommen in!</p>
         </div>
       )}
@@ -109,7 +123,12 @@ export default function Profile() {
               <MainButton onClick={() => setEditing(true)}>✏️ Byt Epic ID</MainButton>
             </div>
           )}
-
+<SkinSelect onSelect={handleSelectSkin} />
+{userData?.skin && (
+  <p className="skin-name">
+    🎨 Vald bakgrund: <strong>{userData.skin.name}</strong>
+  </p>
+)}
           {loading && <p>Hämtar statistik...</p>}
           {playerData && (
             <div className="stats-box">

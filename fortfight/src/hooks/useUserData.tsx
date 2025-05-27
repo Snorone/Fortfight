@@ -30,6 +30,7 @@ export const useUserData = () => {
             displayName: user.displayName,
             email: user.email,
             epicId: data.epicId ?? null,
+            skin: data.skin ?? null,
           });
 
           resolve({
@@ -37,6 +38,7 @@ export const useUserData = () => {
             displayName: user.displayName,
             email: user.email,
             epicId: data.epicId ?? null,
+            skin: data.skin ?? null,
           });
         });
       }),
