@@ -18,12 +18,14 @@ import "./Tournaments.css";
 import MainButton from "../../components/mainbutton/MainButton";
 
 
-enum Category {
-  Wins= "wins",
-  Kills= "kills",
-  KillsDeath = "kd",
-  KillsPerMatch = "kills",
-}
+export const Category = {
+  Wins: "wins",
+  Kills: "kills",
+  KillsDeath : "kd",
+  KillsPerMatch : "kills",
+} as const;
+
+export type Category = typeof Category[keyof typeof Category];
 
 export default function Tournaments() {
   const user = useAuth();

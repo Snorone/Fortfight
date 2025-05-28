@@ -1,5 +1,5 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../../firebase/Firebase"
+import { auth } from "../../firebase/Firebase"
 import MainButton from "../mainbutton/MainButton";
 import { createUserIfNotExists } from "../../firebase/createUserIfNotExist";
 
