@@ -2,9 +2,7 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 2rem;
-    .profile-container {
-      background: rgba(255, 255, 255, 0.92); /* semi-transparent */
-    }
+    background: rgba(164, 164, 164, 0.707); /* semi-transparent */
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     position: relative;

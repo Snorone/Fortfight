@@ -4,12 +4,12 @@ import "./SkinSelect.css";
 export default function SkinSelect({ onSelect }: { onSelect: (skin: any) => void }) {
   const [skins, setSkins] = useState<any[]>([]);
   const [index, setIndex] = useState(0);
-  const visibleCount = 5;
+  const visibleCount = 1;
 
   useEffect(() => {
-    fetch("https://fortnite-api.com/v2/cosmetics/br?type=outfit")
+    fetch("https://fortnite-api.com/v2/cosmetics/br")
       .then(res => res.json())
-      .then(data => setSkins(data.data.slice(2, 30))) // hämta 30 skins
+      .then(data => setSkins(data.data.slice(2, 50))) 
       .catch(err => console.error("Kunde inte hämta skins:", err));
   }, []);
 

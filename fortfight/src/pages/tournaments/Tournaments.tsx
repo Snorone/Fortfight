@@ -20,7 +20,9 @@ import MainButton from "../../components/mainbutton/MainButton";
 
 enum Category {
   Wins= "wins",
-  Kills= "kills"
+  Kills= "kills",
+  KillsDeath = "kd",
+  KillsPerMatch = "kills",
 }
 
 export default function Tournaments() {
@@ -116,9 +118,9 @@ export default function Tournaments() {
 
         <select value={category} onChange={(e) => setCategory(e.target.value as Category)}>
           <option value={Category.Wins}>Vinster</option>
-          <option value="kills">Kills</option>
-          <option value="kd">K/D</option>
-          <option value="killsPerMatch">Kills/Match</option>
+          <option value={Category.Kills}>Kills</option>
+          <option value= {Category.KillsDeath}>K/D</option>
+          <option value={Category.KillsPerMatch}   >Kills/Match</option>
         </select>
 
         {players.map((player, index) => (
