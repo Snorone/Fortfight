@@ -1,61 +1,87 @@
 .compare-container {
-    background: rgb(103, 61, 123);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
-   width: 100%;
-   min-width: 350px;
-    margin: 0 auto;
-  }
-  
-  .compare-container h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-  
+  background: rgb(103, 61, 123);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  margin: 1rem auto;
+  max-width: 800px;
+  width: 90%;
+  box-sizing: border-box;
+  color: black;
+}
+
+.compare-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-row input {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.compare-container button {
+  padding: 0.8rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.compare-container button:hover {
+  background-color: #1d4ed8;
+}
+
+
+@media (min-width: 600px) {
   .input-row {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .input-row input {
-    flex: 1;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    min-width:100px;
-  }
-  
-  .compare-container button {
-    width: 100%;
-    padding: 0.7rem;
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-bottom: 1.5rem;
-  }
-  
-  .compare-container button:hover {
-    background-color: #1d4ed8;
-  }
-  
-  .result-grid {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .result-grid > * {
-    flex: 1 1 100px; /* växer, krymper, grundbredd */
-    min-width: 100px;
+    flex-direction: row;
   }
 
-  @media (max-width: 500px) {
-    .result-grid {
-      flex-direction: column;
-    }
+  .input-row input {
+    flex: 1;
   }
+}
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.result-grid > * {
+  background: #f4f4f4;
+  border-radius: 8px;
+  padding: 1rem;
+  color: black;
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+  .result-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .result-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

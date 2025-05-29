@@ -33,32 +33,32 @@ export default function CompareGrid({ player1, player2, highlights }: CompareGri
       </div>
 
       {Object.keys(statLabels).map((key) => {
-  const val1 = player1.stats[key];
-  const val2 = player2.stats[key];
-  const total = val1 + val2 || 1; // undvik division med 0
-  const percent1 = Math.round((val1 / total) * 100);
-  const percent2 = 100 - percent1;
+        const val1 = player1.stats[key];
+        const val2 = player2.stats[key];
+        const total = val1 + val2 || 1;
+        const percent1 = Math.round((val1 / total) * 100);
+        const percent2 = 100 - percent1;
 
-  return (
-    <div className="compare-row" key={key}>
-      <div className={`value ${highlights[key] === "player1" ? "highlight" : ""}`}>
-        {val1}
-        <div className="bar-wrapper">
-          <div className="compare-bar bar-blue" style={{ width: `${percent1}%` }}></div>
-        </div>
-      </div>
-      <div className="label">{statLabels[key]}</div>
-      <div className={`value ${highlights[key] === "player2" ? "highlight" : ""}`}>
-        {val2}
-        <div className="bar-wrapper">
-          <div className="compare-bar bar-red" style={{ width: `${percent2}%` }}></div>
-        </div>
-      </div>
-    </div>
-  );
-})}
-
-
+        return (
+          <div className="compare-row" key={key}>
+            <div className={`value ${highlights[key] === "player1" ? "highlight" : ""}`}>
+              <span className="player-name">{player1.name}</span>
+              {val1}
+              <div className="bar-wrapper">
+                <div className="compare-bar bar-blue" style={{ width: `${percent1}%` }}></div>
+              </div>
+            </div>
+            <div className="label">{statLabels[key]}</div>
+            <div className={`value ${highlights[key] === "player2" ? "highlight" : ""}`}>
+              <span className="player-name">{player2.name}</span>
+              {val2}
+              <div className="bar-wrapper">
+                <div className="compare-bar bar-red" style={{ width: `${percent2}%` }}></div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -158,7 +158,10 @@ export default function Profile() {
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               backgroundColor: "white",
+              position: "relative",
+              overflow: "hidden", 
             }}>
+              <div className="overlay"></div>
               <h3>Sammanlagd statistik</h3>
               <ul>
                 <li>Vinster: {playerData.stats.all.overall.wins}</li>

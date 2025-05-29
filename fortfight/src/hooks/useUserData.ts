@@ -9,8 +9,9 @@ import type { UserData } from "../types/userData";
 
 export const useUserData = () => {
   const ready = useAuthReady();
+  
 
-  return useQuery({
+  return useQuery<UserData>({
     queryKey: ["userData"],
     enabled: ready,
     queryFn: () =>
