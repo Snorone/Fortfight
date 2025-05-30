@@ -8,7 +8,7 @@ export default function LoginButton() {
   const handleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, new GoogleAuthProvider());
-      await createUserIfNotExists(result.user); // 👈 viktigt!
+      await createUserIfNotExists(result.user); 
     } catch (err) {
       console.error("Login failed", err);
     }

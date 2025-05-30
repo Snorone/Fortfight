@@ -1,6 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import PlayerSearch from "./components/playersearch/PlayerSearch";
-// import Player2Search from "./components/playersearch/Player2Search";
 import Layout from "./layout/Layout";
 import Home from "./pages/home/Home";
 import Compare from "./pages/compare/Compare";

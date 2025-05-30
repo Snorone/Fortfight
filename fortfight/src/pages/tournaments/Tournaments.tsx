@@ -10,7 +10,6 @@ import {
   onSnapshot,
   deleteDoc,
   doc,
-  // getDoc,
 } from "firebase/firestore";
 import { useAuth } from "../../firebase/UseAuth";
 import LoginButton from "../../components/loginbutton/LoginButton";
@@ -18,9 +17,7 @@ import { fetchFortniteStats } from "../../api/FortniteApi";
 import "./Tournaments.css";
 import MainButton from "../../components/mainbutton/MainButton";
 import { useUserData } from "../../hooks/useUserData";
-// import type { UserData } from "../../types/userData";
 import type { Tournaments } from "../../types/tournaments";
-// import { Category } from "../../enums/category";
 
 export const Category = {
   Wins: "wins",
@@ -71,7 +68,7 @@ export default function Tournaments() {
   
     if (!userData?.epicId) return alert("Ditt Epic Games ID saknas. Koppla det i profilen först.");
   
-    const epicId = userData.epicId; // ✅ Nu vet TS att det är en string
+    const epicId = userData.epicId; 
     const allPlayers = [
       epicId,
       ...players.filter((p) => p.trim() !== "" && p.trim() !== epicId),
@@ -118,7 +115,7 @@ export default function Tournaments() {
       await addDoc(collection(db, "tournaments"), {
         title,
         category,
-        players: allPlayers, // ✅ använd färdig lista
+        players: allPlayers, 
         startStats,
         endDate: Timestamp.fromDate(new Date(endDate)),
         createdAt: Timestamp.now(),
@@ -260,7 +257,7 @@ export default function Tournaments() {
       </form>
 
       <h3>Mina tävlingar</h3>
-      {/* <div className="tournament-flex"> */}
+  
       <ul className="tournament-list">
         {tournaments.map((t) => (
           <li key={t.id} className="tournament-card">
@@ -269,14 +266,14 @@ export default function Tournaments() {
             <p>Spelare: {t.players.join(", ")}</p>
             <p>Startade: {t.createdAt.toDate().toLocaleDateString()}</p>
             <p>Slutar: {t.endDate.toDate().toLocaleDateString()}</p>
-            <button onClick={() => handleViewResults(t)}>Visa resultat</button>
-            <button onClick={() => handleDeleteTournament(t.id)} className="delete-button">
+            <div className="tournaments-list-buttons"><MainButton onClick={() => handleViewResults(t)}>Visa resultat</MainButton>
+            <MainButton onClick={() => handleDeleteTournament(t.id)}>
         🗑 Ta bort
-      </button>
+      </MainButton></div>
           </li>
         ))}
       </ul>
-      {/* </div> */}
+
       {selectedTournament && (
         <div className="tournament-results-box">
           <h3>Resultat för: {selectedTournament.title}</h3>

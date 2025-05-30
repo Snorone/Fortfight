@@ -63,7 +63,7 @@ export default function Profile() {
       if (currentUser) {
         setShowModal(false);
         setWelcomeMsg(true);
-        refetch(); // uppdatera användardata direkt
+        refetch(); 
       }
     });
     return () => unsubscribe();
@@ -81,17 +81,14 @@ export default function Profile() {
     if (user?.uid) {
       await saveSkinToUser(user.uid, skin);
       setSaved(true);
-      refetch(); // uppdatera användardata
+      refetch();
     }
   };
 
   if (!ready) return <p>Laddar Firebase...</p>;
   if (isLoading) return <p>Laddar användare...</p>;
   return (
-    <div
-      className="profile-container"
-     
-    >
+    <div className="profile-container">
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -112,55 +109,33 @@ export default function Profile() {
       {!user ? null : (
         <>
           <h2>Min Profil</h2>
-          <p>
-            <strong>Inloggad som:</strong> {user.displayName}
-          </p>
-
-          {!epicId || editing ? (
-            <div className="epic-id-box">
-              <h3>
-                {epicId ? "Byt Epic Games ID" : "Koppla ditt Epic Games-konto"}
-              </h3>
-              <input
-                type="text"
-                placeholder="Ditt Epic ID"
-                value={epicInput}
-                onChange={(e) => setEpicInput(e.target.value)}
-              />
-              <MainButton onClick={handleSaveEpicId}>Spara</MainButton>
-                <MainButton
-                  onClick={() => setEditing(false)}
-                >
-                  Avbryt
-                </MainButton>
-              
-              {saved && <p>✅ Sparat!</p>}
-            </div>
-          ) : (
-            <div className="epic-id-box">
+          <div className="profile-start">
+            <div>
               <p>
-                <strong>Epic ID:</strong> {epicId}
+                <strong>Inloggad som:</strong> {user.displayName}
+                <br />
+                <strong>Epic namn:</strong> {epicId}
               </p>
-              <MainButton onClick={() => setEditing(true)}>
-                ✏️ Byt Epic ID
-              </MainButton>
             </div>
-          )}
-          <SkinSelect onSelect={handleSelectSkin} />
-        
+
+            <SkinSelect onSelect={handleSelectSkin} />
+          </div>
           {loading && <p>Hämtar statistik...</p>}
           {playerData && (
-            <div className="stats-box"  style={{
-              backgroundImage: user?.skin?.image
-                ? `url(${user?.skin?.image})`
-                : undefined,
-              backgroundSize: "70%",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundColor: "white",
-              position: "relative",
-              overflow: "hidden", 
-            }}>
+            <div
+              className="stats-box"
+              style={{
+                backgroundImage: user?.skin?.image
+                  ? `url(${user?.skin?.image})`
+                  : undefined,
+                backgroundSize: "70%",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundColor: "white",
+                position: "relative",
+                overflow: "hidden",
+              }}
+            >
               <div className="overlay"></div>
               <h3>Sammanlagd statistik</h3>
               <ul>
@@ -176,6 +151,33 @@ export default function Profile() {
                   {playerData.stats.all.overall.killsPerMatch.toFixed(2)}
                 </li>
               </ul>
+            </div>
+          )}
+          {!epicId || editing ? (
+            <div className="epic-id-box">
+              <h3>
+                {epicId ? "Byt Epic Games ID" : "Koppla ditt Epic Games-konto"}
+              </h3>
+
+              <input
+                type="text"
+                placeholder="Ditt Epic ID"
+                value={epicInput}
+                onChange={(e) => setEpicInput(e.target.value)}
+              />
+              <div className="epic-id-buttons">
+                <MainButton onClick={handleSaveEpicId}>Spara</MainButton>
+                <MainButton onClick={() => setEditing(false)}>
+                  Avbryt
+                </MainButton>
+              </div>
+              {saved && <p>✅ Sparat!</p>}
+            </div>
+          ) : (
+            <div className="epic-id-box">
+              <MainButton onClick={() => setEditing(true)}>
+                ✏️ Byt Epic ID
+              </MainButton>
             </div>
           )}
           <div className="logout-container">

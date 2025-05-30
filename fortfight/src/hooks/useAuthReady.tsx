@@ -6,7 +6,7 @@ export function useAuthReady() {
 
   useEffect(() => {
     const unsub = auth.onAuthStateChanged(() => {
-      setReady(true); // så fort Firebase är klar, oavsett om inloggad eller ej
+      setReady(true); 
     });
     return () => unsub();
   }, []);

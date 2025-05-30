@@ -6,13 +6,13 @@ import { useQueryClient } from "@tanstack/react-query";
 
 export default function LogoutButton() {
   const navigate = useNavigate();
-  const queryClient = useQueryClient(); // 👈 ny
+  const queryClient = useQueryClient(); 
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      queryClient.clear(); // 👈 rensar all användar-cache
-      navigate("/"); // skicka till startsidan
+      queryClient.clear(); 
+      navigate("/"); 
     } catch (err) {
       console.error("Fel vid utloggning:", err);
     }

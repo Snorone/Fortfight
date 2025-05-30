@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { fetchFortniteStats } from "../../api/FortniteApi";
-// import PlayerProfile from "../../components/playerprofile/PlayerProfile";
 import "./Compare.css";
 import MainButton from "../../components/mainbutton/MainButton";
 import CompareGrid from "../../components/comparegrid/CompareGrid";

@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* max-width: 900px; */
     margin: 0 auto;
   }
   .app-header {
@@ -45,7 +44,6 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    /* padding: 1rem; */
   }
 
   .app-footer {
@@ -85,8 +83,7 @@
     border-radius: 2px;
     transition: transform 0.3s ease, opacity 0.3s ease;
   }
-  
-  /* Positionera de tre linjerna */
+
   .bar.top {
     top: 8px;
   }
@@ -99,7 +96,7 @@
     top: 20px;
   }
   
-  /* När meny är öppen: rotera och skapa ett X */
+
   .hamburger.open .top {
     transform: rotate(45deg) translateY(6px);
   }
@@ -111,8 +108,7 @@
   .hamburger.open .bottom {
     transform: rotate(-45deg) translateY(-6px);
   }
-  
-  /* Navigation */
+
   .app-nav {
     display: flex;
     gap: 1rem;
@@ -125,11 +121,10 @@
   }
   .app-nav .active {
     font-weight: bold;
-    /* text-decoration: underline; */
     color: white;
   }
   
-  /* Mobilanpassning */
+
   @media (max-width: 768px) {
     .hamburger {
       display: flex;

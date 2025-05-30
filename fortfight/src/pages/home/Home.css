@@ -1,9 +1,14 @@
 .home-container {
-    background: rgb(103, 61, 123);
+  background: linear-gradient(
+    to bottom right,
+    rgba(103, 61, 123, 0.6),
+    rgba(0, 0, 0, 0.3)
+  );
     padding: 2rem;
     border-radius: 12px;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    width: 90%;
+    margin: 1rem auto;
     text-align: center;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
   }

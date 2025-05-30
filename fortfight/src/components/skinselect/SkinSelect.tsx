@@ -7,7 +7,7 @@ export default function SkinSelect({ onSelect }: { onSelect: (skin: any) => void
   const visibleCount = 1;
 
   useEffect(() => {
-    fetch("https://fortnite-api.com/v2/cosmetics/br")
+    fetch("https://fortnite-api.com/v2/cosmetics/br?type=outfit")
       .then(res => res.json())
       .then(data => setSkins(data.data.slice(2, 50))) 
       .catch(err => console.error("Kunde inte hämta skins:", err));

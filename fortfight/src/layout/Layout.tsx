@@ -39,8 +39,7 @@ export default function Layout({ children }: LayoutProps) {
 
       <footer className="app-footer">
         <p>
-          &copy; {new Date().getFullYear()} FortFight. Skapat som ett
-          React-projekt.
+          &copy; {new Date().getFullYear()} FortFight Tobias.hurtig@gritacademy.se
         </p>
       </footer>
     </div>
